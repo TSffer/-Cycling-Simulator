@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SlimUI/Modern Menu 1/Scenes/Menu_Scene.unity
+    path: Assets/BicycleSimulator/Scenes/Menu_Scene.unity
     guid: 53e0db7c579d54f4da5d360b96be0985
   - enabled: 1
     path: Assets/BicycleSimulator/Scenes/Environment.unity
