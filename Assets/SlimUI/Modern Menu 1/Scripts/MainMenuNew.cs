@@ -4,7 +4,8 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class MainMenuNew : MonoBehaviour {
+public class MainMenuNew : MonoBehaviour
+{
 
 	Animator CameraObject;
 
@@ -15,6 +16,8 @@ public class MainMenuNew : MonoBehaviour {
 	[Header("Panels")]
 	[Tooltip("The UI Panel parenting all sub menus")]
 	public GameObject mainCanvas;
+    [Tooltip("The UI Panel options")]
+    public GameObject optionCanvas;
 	[Tooltip("The UI Panel that holds the CONTROLS window tab")]
 	public GameObject PanelControls;
 	[Tooltip("The UI Panel that holds the VIDEO window tab")]
@@ -90,25 +93,32 @@ public class MainMenuNew : MonoBehaviour {
 		mainMenu.gameObject.SetActive(true);
 	}
 
-	public void NewGame(){
+	public void NewGame()
+    {
 		if(sceneName != ""){
 			StartCoroutine(LoadAsynchronously(sceneName));
 			//SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 		}
 	}
 
-	public void  DisablePlayCampaign (){
-		playMenu.gameObject.SetActive(false);
+	public void  DisablePlayCampaign ()
+    {
+        optionCanvas.SetActive(false);
+        playMenu.gameObject.SetActive(false);        
 	}
 
-	public void  Position2 (){
+	public void  Position2 ()
+    {
 		DisablePlayCampaign();
-		CameraObject.SetFloat("Animate",1);
-	}
+        CameraObject.SetFloat("Animate",1);
+        optionCanvas.SetActive(true);
+    }
 
-	public void  Position1 (){
+	public void  Position1 ()
+    {
 		CameraObject.SetFloat("Animate",0);
-	}
+        optionCanvas.SetActive(false);
+    }
 
 	public void  GamePanel (){
 		PanelControls.gameObject.SetActive(false);
@@ -216,22 +226,26 @@ public class MainMenuNew : MonoBehaviour {
 		Application.Quit();
 	}
 
-	IEnumerator LoadAsynchronously (string sceneName){ // scene name is just the name of the current scene being loaded
+	IEnumerator LoadAsynchronously (string sceneName)
+    { // scene name is just the name of the current scene being loaded
 			AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 			operation.allowSceneActivation = false;
 			mainCanvas.SetActive(false);
+            optionCanvas.SetActive(false);
 			loadingMenu.SetActive(true);
 
 			while (!operation.isDone){
 				float progress = Mathf.Clamp01(operation.progress / .9f);
 				loadBar.value = progress;
 
-				if(operation.progress >= 0.9f){
+				if(operation.progress >= 0.9f)
+                {
 					finishedLoadingText.gameObject.SetActive(true);
-
-					if(Input.anyKeyDown){
+          
+					/*if(Input.anyKeyDown){
 						operation.allowSceneActivation = true;
-					}
+					}*/
+                    operation.allowSceneActivation = true;
 				}
 				
 				yield return null;
