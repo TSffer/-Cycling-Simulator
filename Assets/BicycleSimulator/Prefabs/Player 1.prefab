@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1115058131075145801}
   - component: {fileID: 8980022485432179893}
   - component: {fileID: 852021380739379893}
+  - component: {fileID: 5538177863060829510}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -130,6 +131,21 @@ MonoBehaviour:
   velocidad: 0
   var_freno: 0
   seguir: 0
+  conectar: {fileID: 5538177863060829510}
+--- !u!114 &5538177863060829510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839001895563585051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e1cb250784e184397b0bf84b23e5bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusText: {fileID: 0}
+  pos: 0
 --- !u!1 &2001744273378735350
 GameObject:
   m_ObjectHideFlags: 0

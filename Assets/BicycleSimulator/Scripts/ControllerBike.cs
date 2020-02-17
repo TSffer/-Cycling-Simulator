@@ -5,6 +5,7 @@ using System.IO.Ports;
 using System;
 
 [RequireComponent(typeof(PlayerMotor))]
+[RequireComponent(typeof(Conectar))]
 public class ControllerBike : MonoBehaviour
 {
     [SerializeField]
@@ -24,32 +25,26 @@ public class ControllerBike : MonoBehaviour
 
     private PlayerMotor motor;
 
+    public Conectar conectar;
+
+
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
-
-        try
-        {
-            serialPort = new SerialPort("COM3", 9600);
-            serialPort.Open();
-            serialPort.ReadTimeout = 25;
-        }
-        catch
-        {
-            Debug.Log("Conecte el Arduino");
-        }
+        conectar = GetComponent<Conectar>();
+       
     }
 
     void FixedUpdate()
     {
         try
         {
-            string value = serialPort.ReadLine();
+            string value = "150,150";
             string[] vec6 = value.Split(',');
             Debug.Log(value);
             var_freno = freno;
             velocidad = int.Parse(vec6[vec6.Length - 1]);
-            freno = int.Parse(vec6[0]);
+            freno = conectar.pos;
             bool frenar = false;
 
             if (freno < 400)
