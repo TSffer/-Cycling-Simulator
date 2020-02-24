@@ -1,1 +1,1 @@
-#    Cycling-Simulator VR
+#    Cycling-Simulator
