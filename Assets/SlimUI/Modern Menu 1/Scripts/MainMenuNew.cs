@@ -93,12 +93,25 @@ public class MainMenuNew : MonoBehaviour
 		mainMenu.gameObject.SetActive(true);
 	}
 
-	public void NewGame()
+	public void NewGameA()
     {
-		if(sceneName != ""){
-			StartCoroutine(LoadAsynchronously(sceneName));
+		sceneName = "Scene1";
+		StartCoroutine(LoadAsynchronously(sceneName));
 			//SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-		}
+	}
+
+	public void NewGameB()
+	{
+		sceneName = "Scene2";
+		StartCoroutine(LoadAsynchronously(sceneName));
+			//SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+	}
+
+	public void NewGameC()
+	{
+		sceneName = "Scene3";
+		StartCoroutine(LoadAsynchronously(sceneName));
+			//SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 	}
 
 	public void  DisablePlayCampaign ()
