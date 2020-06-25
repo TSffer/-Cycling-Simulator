@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO.Ports;
 using System;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerMotor))]
 [RequireComponent(typeof(Conectar))]
@@ -20,31 +21,38 @@ public class ControllerBike : MonoBehaviour
     private int var_freno = 0;
     [SerializeField]
     private int seguir = 0;
+    GameObject hudText;
 
     private SerialPort serialPort;
 
     private PlayerMotor motor;
 
     public Conectar conectar;
-
+    private Text txt;
 
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
         conectar = GetComponent<Conectar>();
-       
+        //hudText = GameObject.FindWithTag("InfoText"); ;
+        //txt = hudText.GetComponent<Text>();
     }
-
+    /*void Update()
+    {
+        txt.text = "INPUT: " + freno.ToString() + " | " + velocidad.ToString();
+    }*/
     void FixedUpdate()
     {
+
         try
         {
-            string value = "150,150";
-            string[] vec6 = value.Split(',');
-            Debug.Log(value);
+            string value = conectar.data;
+            string[] vals = value.Split(',');
             var_freno = freno;
-            velocidad = int.Parse(vec6[vec6.Length - 1]);
-            freno = conectar.pos;
+            velocidad = Int32.Parse(vals[1]);
+            //freno = freno-1;
+            freno = Int32.Parse(vals[0]);
+
             bool frenar = false;
 
             if (freno < 400)
@@ -53,14 +61,10 @@ public class ControllerBike : MonoBehaviour
             }
             else frenar = false;
 
-            if (frenar == false && velocidad == 0 && seguir > 30)
-            {
-                velocidad = seguir;
-            }
-
-            //Debug.Log("velocidad: " + velocidad);
-
-
+            /*           if (frenar == false && velocidad == 0 && seguir > 30)
+                       {
+                           velocidad = seguir;
+                       }*/
             try
             {
                 velocidad = velocidad / 30;
@@ -88,7 +92,7 @@ public class ControllerBike : MonoBehaviour
             }
 
             float mousepos = Input.mousePosition.x;// ("Mouse X");
-            
+
             //angle = mousepos;
             if (mousepos < 650 && mousepos > 600)
             {
@@ -124,16 +128,16 @@ public class ControllerBike : MonoBehaviour
             motor.Move(_movement);
 
             Vector3 _rotation = new Vector3(0.0f, Mathf.Pow(speed, 0.5f) * Mathf.Sin(Mathf.Deg2Rad * angle) * 0.8f, 0.0f);
-            
+
             motor.Rotate(_rotation);
 
-            seguir = int.Parse(vec6[vec6.Length - 1]);
+            seguir = velocidad;
         }
         catch
         {
             Debug.Log("Error Update Bike");
         }
-       
+
     }
 
     bool verificar(String[] vec)

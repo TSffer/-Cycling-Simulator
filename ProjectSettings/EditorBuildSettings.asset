@@ -10,10 +10,13 @@ EditorBuildSettings:
     guid: 53e0db7c579d54f4da5d360b96be0985
   - enabled: 1
     path: Assets/BicycleSimulator/Scenes/Scene1.unity
-    guid: aa34ebf7e46301c468acc201c379649c
+    guid: d80dd519afa1f2c43ac89f9f78bba3c9
   - enabled: 1
     path: Assets/BicycleSimulator/Scenes/Scene2.unity
-    guid: 2e1336748f3797f4798cf9e588e2620f
+    guid: f8926da34da571646a90a1513036f1b6
+  - enabled: 1
+    path: Assets/BicycleSimulator/Scenes/Scene3.unity
+    guid: d3c622454e98aba429698b72f5465a29
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 12d3e9a8acf4aff45be242d4f98a9644,
       type: 2}
