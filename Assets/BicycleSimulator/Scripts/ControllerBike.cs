@@ -34,13 +34,15 @@ public class ControllerBike : MonoBehaviour
     {
         motor = GetComponent<PlayerMotor>();
         conectar = GetComponent<Conectar>();
-        //hudText = GameObject.FindWithTag("InfoText"); ;
-        //txt = hudText.GetComponent<Text>();
+        hudText = GameObject.FindWithTag("InfoText"); ;
+        txt = hudText.GetComponent<Text>();
     }
-    /*void Update()
+    
+    void Update()
     {
-        txt.text = "INPUT: " + freno.ToString() + " | " + velocidad.ToString();
-    }*/
+        txt.text = "INPUT : " + freno.ToString() + "       |       Velocidad : " + velocidad.ToString();
+    }
+
     void FixedUpdate()
     {
 

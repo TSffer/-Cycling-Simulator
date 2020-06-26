@@ -2487,7 +2487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e1cb250784e184397b0bf84b23e5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: 0
+  data: 
 --- !u!1 &1503235707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,19 +2976,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.9483357, b: 0.9483357, a: 1}
+  m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6981833f6c0da42e59f4597a194b3527, type: 3}
+    m_Font: {fileID: 12800000, guid: 997a43b767814dd0a7642ec9b78cba41, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 212
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3575,7 +3575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e1cb250784e184397b0bf84b23e5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: 0
+  data: 
 --- !u!1001 &2084661335
 PrefabInstance:
   m_ObjectHideFlags: 0
